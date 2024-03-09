@@ -1,0 +1,33 @@
+---
+title: 'Merch'
+
+# The "header_menu_title" value will be used as text for header buttons.
+# The "title" value will be used if value for "header_menu_title" is not provided.
+#header_menu_title: 'Short Menu Title'
+
+# The "navigation_menu_title" value will be used as text for fixed menu items.
+# The "title" value will be used if value for "navigation_menu_title" is not provided.
+#navigation_menu_title: 'Short Menu Title'
+
+# The "weight" will determine where this section appears on the "homepage".
+# A bigger weight will place the content more towards the bottom of the page.
+# It's like gravity ;-).
+weight: 5
+
+# If "header_menu" is true, then a button linking to this section will be placed
+# into the header menu at the top of the homepage.
+header_menu: true
+---
+
+Pre-order your Second Wind 2024 tee now!
+![Second Wind Tee](images/sw_tee.png)
+{{< rawhtml >}}
+<div id="site-head">
+<a class="btn site-menu inner vertical" style="margin-top: -25px;" href="https://respawn.co.nz/category/merch/sw/" target="_blank" rel="noopener noreferrer">Shop</a>
+</div>
+{{< /rawhtml >}}
+
+
+
+
+
