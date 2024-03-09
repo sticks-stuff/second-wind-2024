@@ -1,3 +1,4 @@
+<!--
 ---
 title: 'Schedule'
 
@@ -24,3 +25,5 @@ header_menu: true
 ![Day 1](images/Super_Smash_Bros._Ultimate_logo.svg.png)
 ![Day 2](images/Super_Smash_Bros._Ultimate_logo.svg.png)
 ![Day 3](images/Super_Smash_Bros._Ultimate_logo.svg.png)
+
+-->

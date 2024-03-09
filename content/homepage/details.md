@@ -22,8 +22,8 @@ header_menu: true
 **Dates**  
 {{<icon class="fa fa-calendar">}}
 July 12 - July 24 2024  
-Doors Open: 9am  
-Doors Close: 10pm
+<!--Doors Open: 9am  
+Doors Close: 10pm -->
 
 **Location**  
 {{<icon class="fa fa-location-arrow">}}
