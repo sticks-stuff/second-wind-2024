@@ -12,9 +12,7 @@ header_logo: "images/Second_Wind_Logo_White.png"
 header_headline: "JULY 12-14 2024"
 header_subheadline: "<p>Presented by <a href='https://respawn.co.nz/'>Respawn Esports Centre</a></p>
 
-<p><a class='btn site-menu' style='font-size: 32px; -webkit-border-radius: 6px; padding: 20px 30px; text-shadow: none;' href='#' onClick='(function(){ alert(\"Signup form coming soon\"); })();' >Sign up now!</a></p>"
-
-#<p><a class='btn site-menu' style='font-size: 32px; -webkit-border-radius: 6px; padding: 20px 30px; text-shadow: none;' href='https://www.start.gg/tournament/second-wind/details/' target='_blank' rel='noopener noreferrer'>Sign up now!</a></p>"
+<p><a class='btn site-menu' style='font-size: 32px; -webkit-border-radius: 6px; padding: 20px 30px; text-shadow: none;' href='https://www.start.gg/tournament/second-wind-2024/details' target='_blank' rel='noopener noreferrer'>Sign up now!</a></p>"
 
 
 # Add a 'Go back to top' item to the navigation menu
@@ -23,12 +21,3 @@ header_subheadline: "<p>Presented by <a href='https://respawn.co.nz/'>Respawn Es
 nav_to_top_title: "Return To Top"
 nav_to_top_weight: last
 ---
-
-{{< rawhtml >}}
-<script>
-   var pressedButton = document.getElementsById("signupbtn")[0];
-   pressedButton.addEventListener("click", function (event) {
-      alert("You have pressed the button..........")
-   })
-</script>
-{{< /rawhtml >}}
