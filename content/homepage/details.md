@@ -30,7 +30,7 @@ Doors Close: 10pm -->
 Respawn Esports Centre, 9 Manners Street, Te Aro, Wellington 6011
 
 {{< rawhtml >}}
-<a href="https://maps.app.goo.gl/qKewjfjvHmz69PPF7"><img src="images/respawn_map.png"  alt="Respawn Map" style="/*! border-block-color: black; *//*! border-image-width: 10px; */border: 5px solid #3a3a3a;"></a>
+<a href="https://maps.app.goo.gl/qKewjfjvHmz69PPF7" target="_blank"><img src="images/respawn_map.png"  alt="Respawn Map" style="/*! border-block-color: black; *//*! border-image-width: 10px; */border: 5px solid #3a3a3a;"></a>
 {{< /rawhtml >}}
 
 

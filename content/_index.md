@@ -10,7 +10,7 @@ header_logo: "images/Second_Wind_Logo_White.png"
 #
 # Headers are safeHTML, you can use HTML tags such as b,i,u,br
 header_headline: "JULY 12-14 2024"
-header_subheadline: "<p>Presented by <a href='https://respawn.co.nz/'>Respawn Esports Centre</a></p>
+header_subheadline: "<p>Presented by <a target="_blank" href='https://respawn.co.nz/'>Respawn Esports Centre</a></p>
 
 <p><a class='btn site-menu' style='font-size: 32px; -webkit-border-radius: 6px; padding: 20px 30px; text-shadow: none;' href='https://www.start.gg/tournament/second-wind-2024/details' target='_blank' rel='noopener noreferrer'>Sign up now!</a></p>"
 
