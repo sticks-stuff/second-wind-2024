@@ -1,4 +1,4 @@
-baseURL = "https://sticks-stuff.github.io/second-wind-2024"
+baseURL = "https://secondwind.nz/"
 
 # This is a "one page"-website, so we do not need these kinds of pages...
 disableKinds = ["section", "taxonomy", "term", "RSS", "robotsTXT"]
