@@ -20,7 +20,7 @@ weight: 6
 header_menu: true
 ---
 
-Want to help make Second Wind better? Consider supporting us at the event in one of out volunteer roles!
+Want to help make Second Wind better? Consider supporting us at the event in one of our volunteer roles!
 
 {{<icon class="fa fa-camera">}} [Photographer/Videographer](https://forms.gle/PgCGwAUJyAEftLyS7)
 
