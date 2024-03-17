@@ -22,4 +22,9 @@ header_menu: true
 
 Want to help make Second Wind better? Consider supporting us at the event in one of out volunteer roles!
 
-Link to volunteer roles page, maybe a photo of staff or something
+{{<icon class="fa fa-camera">}} [Photographer/Videographer](https://forms.gle/PgCGwAUJyAEftLyS7)
+
+{{<icon class="fa fa-microphone">}} [Commentary](https://forms.gle/8xEws2BSmjyVxdkr8)
+
+{{<icon class="fa fa-users">}} [Misc](https://forms.gle/oMtz5m4MeVVxoxCbA)
+
