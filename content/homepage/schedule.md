@@ -1,4 +1,4 @@
-<!--
+
 ---
 title: 'Schedule'
 
@@ -13,17 +13,13 @@ title: 'Schedule'
 # The "weight" will determine where this section appears on the "homepage".
 # A bigger weight will place the content more towards the bottom of the page.
 # It's like gravity ;-).
-weight: 6
+weight: 5
 
 # If "header_menu" is true, then a button linking to this section will be placed
 # into the header menu at the top of the homepage.
 header_menu: true
 ---
-
-3 images, one for each day. Include streams as well
-
-![Day 1](images/Super_Smash_Bros._Ultimate_logo.svg.png)
-![Day 2](images/Super_Smash_Bros._Ultimate_logo.svg.png)
-![Day 3](images/Super_Smash_Bros._Ultimate_logo.svg.png)
-
--->
+![Schedule](images/schedule.png)
+{{< rawhtml >}}
+<p style="font-size: 0.7em;text-align: center;"><cite>Subject to change</cite></p>
+{{< /rawhtml >}}
