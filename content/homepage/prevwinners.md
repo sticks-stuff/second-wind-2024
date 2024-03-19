@@ -23,24 +23,12 @@ header_menu: true
 <style>
 </style>
 
-<div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
-  <div class="carousel-cell">
+<div class="main-carousel" data-flickity='{ "imagesLoaded": true, "wrapAround": true, "percentPosition": false }'>
 	<img src="images/prev_winners/tekken7.png" alt="Project+">
-  </div>
-  <div class="carousel-cell">
 	<img src="images/prev_winners/ultimate.png" alt="Project+">
-  </div>
-  <div class="carousel-cell">
 	<img src="images/prev_winners/sf6.png" alt="Project+">
-  </div>
-  <div class="carousel-cell">
 	<img src="images/prev_winners/melee.png" alt="Project+">
-  </div>
-  <div class="carousel-cell">
 	<img src="images/prev_winners/roa.png" alt="Project+">
-  </div>
-  <div class="carousel-cell">
 	<img src="images/prev_winners/umvc3.png" alt="Project+">
-  </div>
 </div>
 {{< /rawhtml >}}
