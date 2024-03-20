@@ -7,6 +7,7 @@ header_use_video: false
 #
 # Optional header logo. CSS: `#blog-logo`, with max-height defined, optimize to prevent scaling
 header_logo: "images/Second_Wind_Logo_White.png"
+title: "Second Wind 2024"
 #
 # Headers are safeHTML, you can use HTML tags such as b,i,u,br
 header_headline: "JULY 12-14 2024"
