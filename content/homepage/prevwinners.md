@@ -24,11 +24,12 @@ header_menu: true
 </style>
 
 <div class="main-carousel" data-flickity='{ "imagesLoaded": true, "wrapAround": true, "percentPosition": false }'>
-	<img src="images/prev_winners/tekken7.png" alt="Project+">
-	<img src="images/prev_winners/ultimate.png" alt="Project+">
-	<img src="images/prev_winners/sf6.png" alt="Project+">
-	<img src="images/prev_winners/melee.png" alt="Project+">
-	<img src="images/prev_winners/roa.png" alt="Project+">
-	<img src="images/prev_winners/umvc3.png" alt="Project+">
+	<img src="images/prev_winners/tekken7.png" alt="TEKKEN 7 Second Wind 2023 Winners">
+	<img src="images/prev_winners/ultimate.png" alt="Super Smash Bros Ultimate Second Wind 2023 Winners">
+	<img src="images/prev_winners/sf6.png" alt="Street Fighter 6 Second Wind 2023 Winners">
+	<img src="images/prev_winners/melee.png" alt="Melee Second Wind 2023 Winners">
+	<img src="images/prev_winners/roa.png" alt="Rivals of Aether Second Wind 2023 Winners">
+	<img src="images/prev_winners/umvc3.png" alt="UMvC3 Second Wind 2023 Winners">
+	<img src="images/prev_winners/ggstrive.png" alt="GGST Second Wind 2023 Winners">
 </div>
 {{< /rawhtml >}}
