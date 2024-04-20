@@ -16,7 +16,7 @@ weight: 7
 
 # If "header_menu" is true, then a button linking to this section will be placed
 # into the header menu at the top of the homepage.
-header_menu: true
+header_menu: false
 ---
 
 {{< rawhtml >}}
