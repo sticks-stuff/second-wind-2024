@@ -1,4 +1,3 @@
-<!--
 ---
 title: 'Merch'
 
@@ -21,14 +20,14 @@ header_menu: true
 ---
 
 Pre-order your Second Wind 2024 tee now!
-![Second Wind Tee](images/sw_tee.png)
+![Second Wind Tee](images/SW-shirt-Vfinals.png)
 {{< rawhtml >}}
 <div id="site-head">
-<a class="btn site-menu inner vertical" style="margin-top: -25px;" href="https://respawn.co.nz/category/merch/sw/" target="_blank" rel="noopener noreferrer">Shop</a>
+<a class="btn site-menu inner vertical" style="margin-top: -25px;" href="https://respawn.co.nz/product/second-wind-2024-official-shirt" target="_blank" rel="noopener noreferrer">Shop</a>
 </div>
 {{< /rawhtml >}}
 
 
 
--->
+
 
