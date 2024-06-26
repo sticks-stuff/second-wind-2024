@@ -13,6 +13,34 @@ title: "Second Wind 2024"
 header_headline: "JULY 12-14 2024"
 header_subheadline: "<p>Presented by <a target='_blank' href='https://respawn.co.nz/'>Respawn Esports Centre</a></p>
 
+<script>
+function updateTimer() {
+  future  = new Date(1720762200 * 1000);
+  now     = new Date();
+  diff    = future - now;
+
+  days  = Math.floor( diff / (1000*60*60*24) );
+  hours = Math.floor( diff / (1000*60*60) );
+  mins  = Math.floor( diff / (1000*60) );
+  secs  = Math.floor( diff / 1000 );
+
+  d = days;
+  h = hours - days  * 24;
+  m = mins  - hours * 60;
+  s = secs  - mins  * 60;
+
+  document.getElementById('timer')
+    .innerHTML =
+      d + '<span> days, </span>' +
+      h + '<span> hours, </span>' +
+      m + '<span> minutes, </span>' +
+      s + '<span> seconds </span>' ;
+}
+setInterval('updateTimer()', 1000 );
+</script>
+
+<div style='font-size: 40px; background: black; padding: 15px; border-radius: 15px;' id='timer'></div>
+
 <p><a class='btn site-menu' style='font-size: 32px; -webkit-border-radius: 6px; padding: 20px 30px; text-shadow: none;' href='https://www.start.gg/tournament/second-wind-2024/details' target='_blank' rel='noopener noreferrer'>Sign up now!</a></p>"
 
 
