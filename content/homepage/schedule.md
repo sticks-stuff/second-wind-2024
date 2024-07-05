@@ -19,7 +19,8 @@ weight: 5
 # into the header menu at the top of the homepage.
 header_menu: true
 ---
-![Schedule](images/schedule.png)
+<!-- ![Schedule](images/new_schedule.png) -->
 {{< rawhtml >}}
+<img src="images/new_schedule.png" alt="Schedule">
 <p style="font-size: 0.7em;text-align: center;"><cite>Subject to change</cite></p>
 {{< /rawhtml >}}
