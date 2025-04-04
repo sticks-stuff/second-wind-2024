@@ -1,4 +1,4 @@
----
+<!-- ---
 title: 'Hotels'
 
 # The "header_menu_title" value will be used as text for header buttons.
@@ -22,4 +22,4 @@ Looking at travelling down to Wellington for Second Wind?
 
 Book at [Mercure Central City](https://www.centralcityhotel.co.nz/) or [Abel Tasman](https://www.abeltasmanhotel.co.nz/) and get a discount using the code `SECONDWIND`
 
-Book at [Trinity Hotel](https://trinityhotel.co.nz/) and use the code `SW2024` for a further discount!
+Book at [Trinity Hotel](https://trinityhotel.co.nz/) and use the code `SW2024` for a further discount! -->

@@ -1,4 +1,4 @@
----
+<!-- ---
 title: 'Merch'
 
 # The "header_menu_title" value will be used as text for header buttons.
@@ -30,4 +30,4 @@ Pre-order your Second Wind 2024 tee now!
 
 
 
-
+ -->

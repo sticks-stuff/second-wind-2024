@@ -19,17 +19,36 @@ weight: 7
 header_menu: false
 ---
 
+2024 Winners!
 {{< rawhtml >}}
 <style>
 </style>
 
 <div class="main-carousel" data-flickity='{ "imagesLoaded": true, "wrapAround": true, "percentPosition": false }'>
-	<img src="images/prev_winners/tekken7.png" alt="TEKKEN 7 Second Wind 2023 Winners">
-	<img src="images/prev_winners/ultimate.png" alt="Super Smash Bros Ultimate Second Wind 2023 Winners">
-	<img src="images/prev_winners/sf6.png" alt="Street Fighter 6 Second Wind 2023 Winners">
-	<img src="images/prev_winners/melee.png" alt="Melee Second Wind 2023 Winners">
-	<img src="images/prev_winners/roa.png" alt="Rivals of Aether Second Wind 2023 Winners">
-	<img src="images/prev_winners/umvc3.png" alt="UMvC3 Second Wind 2023 Winners">
-	<img src="images/prev_winners/ggstrive.png" alt="GGST Second Wind 2023 Winners">
+	<img src="images/prev_winners/2024/tekken.png" alt="TEKKEN 8 Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/ulti.png" alt="Super Smash Bros Ultimate Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/sf6.png" alt="Street Fighter 6 Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/melee.png" alt="Melee Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/rivals.png" alt="Rivals of Aether Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/marvel.png" alt="UMvC3 Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/guiltygear.png" alt="GGST Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/undernight.png" alt="Under Night Second Wind 2024 Winners">
+	<img src="images/prev_winners/2024/kof.png" alt="KOF Second Wind 2024 Winners">
+</div>
+{{< /rawhtml >}}
+
+2023 Winners!
+{{< rawhtml >}}
+<style>
+</style>
+
+<div class="main-carousel" data-flickity='{ "imagesLoaded": true, "wrapAround": true, "percentPosition": false }'>
+	<img src="images/prev_winners/2023/tekken7.png" alt="TEKKEN 7 Second Wind 2023 Winners">
+	<img src="images/prev_winners/2023/ultimate.png" alt="Super Smash Bros Ultimate Second Wind 2023 Winners">
+	<img src="images/prev_winners/2023/sf6.png" alt="Street Fighter 6 Second Wind 2023 Winners">
+	<img src="images/prev_winners/2023/melee.png" alt="Melee Second Wind 2023 Winners">
+	<img src="images/prev_winners/2023/roa.png" alt="Rivals of Aether Second Wind 2023 Winners">
+	<img src="images/prev_winners/2023/umvc3.png" alt="UMvC3 Second Wind 2023 Winners">
+	<img src="images/prev_winners/2023/ggstrive.png" alt="GGST Second Wind 2023 Winners">
 </div>
 {{< /rawhtml >}}

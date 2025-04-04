@@ -21,7 +21,7 @@ header_menu: true
 
 {{< rawhtml >}}
 <style>
-    div.games img {display: inline; max-width: 45%;}
+    div.games img {display: inline; max-width: 50%;}
 </style>
 
 <img src="images/uni2.png" alt="Under Night 2" style="margin-bottom: -45px;">
@@ -30,7 +30,8 @@ header_menu: true
 <img src="images/mvc.png" alt="Ultimate Marvel vs Capcom 3">
 </div>
 <img src="images/pplus.png" alt="Project+">
+<img src="images/rivals-logo.png" alt="Rivals of Aether">
 
-<img src="images/triplethreat.png" alt="Triple Threat" style="margin-top: 30px; margin-bottom: 15px;">
+<!-- <img src="images/triplethreat.png" alt="Triple Threat" style="margin-top: 30px; margin-bottom: 15px;"> -->
 
 {{< /rawhtml >}}
