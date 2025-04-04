@@ -26,10 +26,10 @@ header_menu: true
 
 <img src="images/uni2.png" alt="Under Night 2" style="margin-bottom: -45px;">
 <div class="games">
-<img src="images/kof.png" alt="King of Fighters XV" style="margin-bottom: 45px;">
+<!-- <img src="images/kof.png" alt="King of Fighters XV" style="margin-bottom: 45px;"> -->
 <img src="images/mvc.png" alt="Ultimate Marvel vs Capcom 3">
-</div>
 <img src="images/pplus.png" alt="Project+">
+</div>
 <img src="images/rivals-logo.png" alt="Rivals of Aether">
 
 <!-- <img src="images/triplethreat.png" alt="Triple Threat" style="margin-top: 30px; margin-bottom: 15px;"> -->
