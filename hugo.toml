@@ -35,7 +35,7 @@ title = "Second Wind 2025"
     # Another "title" :-). This one is used as the site_name on the Hugo's internal
     # opengraph structured data template.
     # See https://ogp.me/ and https://gohugo.io/templates/internal#open-graph.
-    title = "Second Wind 2024"
+    title = "Second Wind 2025"
 
     # The "description" of your website. This is used in the meta data of your generated html.
     description = "Wellingtons Biggest Fighting Game Major!"
