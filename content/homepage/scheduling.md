@@ -1,4 +1,4 @@
----
+<!-- ---
 title: 'Scheduling'
 
 # The "header_menu_title" value will be used as text for header buttons.
@@ -22,4 +22,4 @@ For Second Wind 2025 we're running more main games than ever before. In order to
 
 Scheduling decisions will be based off entrant counts when regular signups conclude on June 14th, and much like recent EVO tournaments, smaller brackets will conclude earlier in the weekend.
 
-Make sure to get in early to support your favourite games and we look forward to seeing you at Second Wind 2025.
+Make sure to get in early to support your favourite games and we look forward to seeing you at Second Wind 2025. -->
