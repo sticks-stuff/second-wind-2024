@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{ partial "title.html" . }}
+  {{ partial "categories.html" }}
+  {{ partial "featured.html" . }}
+  <section class="galleries">
+    <!-- Original direct children -->
+    {{ range where .Pages "Params.private" "ne" true }}
+      {{ partial "album-card.html" . }}
+    {{ end }}
+    
+    <!-- Look for nested galleries -->
+    {{ range .Site.AllPages }}
+      {{ if and (eq .Type "photos") (ne .Kind "home") (ne .Kind "section") }}
+        {{ if and (gt (len (.Resources.ByType "image")) 0) (ne .Params.private true) }}
+          {{ if not (in .Pages .) }}
+            {{ partial "album-card.html" . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}
