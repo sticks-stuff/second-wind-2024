@@ -1,4 +1,4 @@
----
+<!-- ---
 title: 'Side Games'
 
 # The "header_menu_title" value will be used as text for header buttons.
@@ -34,4 +34,4 @@ header_menu: true
 
 <!-- <img src="images/triplethreat.png" alt="Triple Threat" style="margin-top: 30px; margin-bottom: 15px;"> -->
 
-{{< /rawhtml >}}
+{{< /rawhtml >}} -->

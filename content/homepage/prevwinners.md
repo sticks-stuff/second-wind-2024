@@ -19,6 +19,27 @@ weight: 7
 header_menu: false
 ---
 
+2025 Winners!
+{{< rawhtml >}}
+<style>
+</style>
+
+<div class="main-carousel" data-flickity='{ "imagesLoaded": true, "wrapAround": true, "percentPosition": false }'>
+	<img src="images/prev_winners/2025/tekken.png" alt="TEKKEN 8 Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/ssbu.png" alt="Super Smash Bros Ultimate Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/sf6.png" alt="Street Fighter 6 Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/roa2.png" alt="Rivals of Aether II Second Wind 2024 Winners">
+	<img src="images/prev_winners/2025/strive.png" alt="GGST Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/cotw.png" alt="City of the Wolves Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/melee.png" alt="Melee Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/pplus.png" alt="Project+ Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/marvel_3.png" alt="UMvC3 Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/grandblue.png" alt="Grandblue Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/roa.png" alt="Rivals of Aether Second Wind 2025 Winners">
+	<img src="images/prev_winners/2025/undernight.png" alt="Under Night Second Wind 2025 Winners">
+</div>
+{{< /rawhtml >}}
+
 2024 Winners!
 {{< rawhtml >}}
 <style>

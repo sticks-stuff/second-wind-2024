@@ -20,25 +20,24 @@ header_menu: true
 ---
 
 **Dates**  
-{{<icon class="fa fa-calendar">}}
-July 11 - July 13 2025
+{{<icon name="fa fa-calendar">}}
+July 10 - July 12 2026
 <!--Doors Open: 9am  
 Doors Close: 10pm -->
 
 **Location**  
-{{<icon class="fa fa-location-arrow">}}
-Respawn Esports Centre, 9 Manners Street, Te Aro, Wellington 6011
-
+{{<icon name="fa fa-location-arrow">}}
+Rutherford House, 33 Bunny Street, Pipitea, Wellington 6011
 {{< rawhtml >}}
-<a href="https://maps.app.goo.gl/qKewjfjvHmz69PPF7" target="_blank"><img src="images/respawn_map.png"  alt="Respawn Map" style="/*! border-block-color: black; *//*! border-image-width: 10px; */border: 5px solid #3a3a3a;"></a>
+<a href="https://maps.app.goo.gl/sSGQd1XN4BH6poer9" target="_blank"><img src="images/rutherford_map.png"  alt="Rutherford House Map" style="/*! border-block-color: black; *//*! border-image-width: 10px; */border: 5px solid #3a3a3a;"></a>
 {{< /rawhtml >}}
 
 
 **Contact Info**  
 https://respawn.co.nz  
-{{<icon class="fa fa-envelope">}}
+{{<icon name="fa fa-envelope">}}
 info@respawn.co.nz  
-{{<icon class="fa fa-phone-square">}}
+{{<icon name="fa fa-phone-square">}}
 04 555 0978  
 
 

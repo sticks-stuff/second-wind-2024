@@ -1,21 +1,21 @@
 ---
 # Striking header background image, Ideal images are homogenous around the centre and contrasting to the text. Non-ideal images can use `title_guard`
-header_image: "images/background.png"
+header_image: "images/DSC01525_DxO.jpg"
 #
 # When set true, uses video from custom_header_video.html partial, instead of header_image
 header_use_video: false
 #
 # Optional header logo. CSS: `#blog-logo`, with max-height defined, optimize to prevent scaling
-header_logo: "images/Second_Wind_Logo_White.png"
-title: "Second Wind 2025"
+header_logo: "images/sw26_logo.png"
+title: "Second Wind 2026"
 #
 # Headers are safeHTML, you can use HTML tags such as b,i,u,br
-header_headline: "JULY 11-13 2025"
+header_headline: "JULY 10-12 2026"
 header_subheadline: "<p>Presented by <a target='_blank' href='https://respawn.co.nz/'>Respawn Esports Centre</a></p>
 
 <script>
 function updateTimer() {
-  future  = new Date(1752211800 * 1000);
+  future  = new Date(1783663200 * 1000);
   now     = new Date();
   diff    = future - now;
 
@@ -41,7 +41,7 @@ setInterval('updateTimer()', 1000 );
 
 <div style='font-size: 40px; background: black; padding: 15px; border-radius: 15px;' id='timer'></div>
 
-<p><a class='btn site-menu' style='font-size: 32px; -webkit-border-radius: 6px; padding: 20px 30px; text-shadow: none;' href='https://www.start.gg/tournament/second-wind-2025/details' target='_blank' rel='noopener noreferrer'>Sign up now!</a></p>"
+<p><a class='btn site-menu' style='font-size: 32px; -webkit-border-radius: 6px; padding: 20px 30px; text-shadow: none;' href='https://www.start.gg/tournament/second-wind-2026/details' target='_blank' rel='noopener noreferrer'>Sign up now!</a></p>"
 
 
 # Add a 'Go back to top' item to the navigation menu

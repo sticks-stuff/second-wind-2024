@@ -22,9 +22,9 @@ header_menu: true
 
 Want to help make Second Wind better? Consider supporting us at the event in one of our volunteer roles!
 
-{{<icon class="fa fa-camera">}} [Photographer/Videographer](https://forms.gle/qmSKFzCZ6unWMRET6)
+{{<icon name="fa fa-camera">}} [Photographer/Videographer](https://forms.gle/xUoA9iGjqkvKUwCq8)
 
-{{<icon class="fa fa-microphone">}} [Commentary](https://forms.gle/1Z7e1Qefw49f24e56)
+{{<icon name="fa fa-microphone">}} [Commentary](https://forms.gle/fJ6viuT8JpFvYDJH6)
 
-{{<icon class="fa fa-users">}} [Misc](https://forms.gle/2xT33Fy9KBKMRczN9)
+{{<icon name="fa fa-users">}} [Misc](https://forms.gle/WU5zVxv95oqfoN6NA)
 
