@@ -23,7 +23,10 @@ header_menu: true
 </div>
 <img src="images/grandblue_rising.png" alt="Granblue Fantasy Versus: Rising">
 <img src="images/GGStrive_Logo.png" alt="GUILTY GEAR -STRIVE" style="margin-top: 45px;">
+<div class="games">
 <img src="images/2XKO_game_logo.svg.png" alt="2XKO">
+<img src="images/Avatar_TheFightingGame_BKsketch_A2.png" alt="Avatar The Fighting Game">
+</div>
 
 <img src="images/Super_Smash_Bros._Ultimate_logo.svg.png" alt="Super Smash Bros. Ultimate" style="margin-top: 30px; margin-bottom: 15px;">
 <div class="games">
