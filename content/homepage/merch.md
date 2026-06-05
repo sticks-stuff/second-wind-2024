@@ -1,4 +1,4 @@
-<!-- ---
+---
 title: 'Merch'
 
 # The "header_menu_title" value will be used as text for header buttons.
@@ -19,15 +19,10 @@ weight: 5
 header_menu: true
 ---
 
-Pre-order your Second Wind 2024 tee now!
-![Second Wind Tee](images/SW-shirt-Vfinals.png)
+Pre-order your Second Wind 2026 tee now!
+![Second Wind Tee](images/SW2026-MOCKUPS-transparent.png)
 {{< rawhtml >}}
 <div id="site-head">
-<a class="btn site-menu inner vertical" style="margin-top: -25px;" href="https://respawn.co.nz/product/second-wind-2024-official-shirt" target="_blank" rel="noopener noreferrer">Shop</a>
+<a class="btn site-menu inner vertical" style="margin-top: -25px;" href="https://respawn.co.nz/product/second-wind-2026-official-t-shirt/" target="_blank" rel="noopener noreferrer">Shop</a>
 </div>
 {{< /rawhtml >}}
-
-
-
-
- -->
