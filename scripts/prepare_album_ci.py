@@ -40,7 +40,7 @@ def download_album_images(data_path: Path, dest_root: Path, base_url: str) -> in
     return len(images)
 
 
-def cleanup_album_images(data_path: Path, dest_root: Path) -> int:
+def cleanup_album_images(data_path: Path, dest_root: Path, public_roots=None) -> int:
     if not data_path.exists():
         print(f"data file not found: {data_path}")
         return 0
@@ -48,20 +48,39 @@ def cleanup_album_images(data_path: Path, dest_root: Path) -> int:
     with data_path.open("r", encoding="utf-8") as fh:
         data = yaml.safe_load(fh) or {}
 
+    public_roots = [Path(p) for p in (public_roots or ["public", "public/photos"])]
     removed = 0
     for item in data.get("images", []):
         name = item.get("name")
         if not name:
             continue
-        p = dest_root / Path(name)
-        if p.exists():
-            p.unlink()
-            print(f"removed: {p}")
-            removed += 1
+        rel_path = Path(name)
+        candidates = [dest_root / rel_path]
 
-    for current_root, dirs, files in os.walk(dest_root, topdown=False):
-        if not os.listdir(current_root):
-            os.rmdir(current_root)
+        for public_root in public_roots:
+            candidates.extend([
+                public_root / rel_path,
+                public_root / "second-wind-2026" / rel_path,
+                public_root / "photos" / rel_path,
+                public_root / "photos" / "second-wind-2026" / rel_path,
+            ])
+
+        for candidate in candidates:
+            if candidate.exists():
+                candidate.unlink()
+                print(f"removed: {candidate}")
+                removed += 1
+
+    roots_to_cleanup = [dest_root, *public_roots]
+    for root in roots_to_cleanup:
+        if not root.exists():
+            continue
+        for current_root, dirs, files in os.walk(root, topdown=False):
+            if not os.listdir(current_root):
+                try:
+                    os.rmdir(current_root)
+                except OSError:
+                    pass
     return removed
 
 
@@ -77,7 +96,7 @@ def main() -> int:
     dest_root = Path(args.dest)
 
     if args.cleanup:
-        removed = cleanup_album_images(data_path, dest_root)
+        removed = cleanup_album_images(data_path, dest_root, public_roots=["public", "public/photos"])
         print(f"cleanup complete: removed {removed} files")
         return 0
 
