@@ -69,7 +69,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Download or clean up album images for Hugo CI builds")
     parser.add_argument("--data", default="data/second_wind_2026_files.yaml")
     parser.add_argument("--dest", default="content/photos/second-wind-2026")
-    parser.add_argument("--base-url", default="https://sharlot.memes.nz/second-wind-photos/photos/second-wind-2026")
+    parser.add_argument("--base-url", default="https://sharlot.memes.nz/second-wind-photos/second-wind-2026")
     parser.add_argument("--cleanup", action="store_true")
     args = parser.parse_args()
 
