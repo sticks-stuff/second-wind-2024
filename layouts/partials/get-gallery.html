@@ -1,0 +1,80 @@
+{{ $gallery := "" }}
+{{ $images := slice }}
+{{ $isSW := false }}
+{{ with .File }}
+  {{ if strings.Contains .Path "second-wind-2026" }}
+    {{ $isSW = true }}
+  {{ end }}
+{{ end }}
+
+{{ $remoteImages := slice }}
+{{ if and $isSW (site.Data.second_wind_2026_files) }}
+  {{ range $it := site.Data.second_wind_2026_files.images }}
+    {{ $remoteImages = $remoteImages | append (dict
+      "Name" $it.name
+      "Title" (default "" $it.title)
+      "Date" ""
+      "Params" (dict)
+      "image" nil
+      "Width" $it.width
+      "Height" $it.height
+    ) }}
+  {{ end }}
+{{ end }}
+
+{{ if gt (len $remoteImages) 0 }}
+  {{ $images = $remoteImages }}
+{{ else }}
+  {{ $images = where (.Resources.ByType "image") "Params.hidden" "ne" true }}
+{{ end }}
+
+{{ if gt (len $images) 0 }}
+  {{ $covers := where (.Resources.ByType "image") "Params.cover" "eq" true }}
+  {{ $cover := "" }}
+  {{ if ge (len $covers) 0 }}
+    {{ $cover = index $covers 0 }}
+  {{ end }}
+
+  {{ $imageCount := 0 }}
+  {{ $albumCount := 0 }}
+
+  {{ if and $isSW (gt (len $remoteImages) 0) }}
+    {{ $first := index $images 0 }}
+    {{ $thumbnail := dict
+      "RelPermalink" (print "https://sharlot.memes.nz/second-wind-photos/second-wind-2026/" $first.Name)
+      "Width" $first.Width
+      "Height" $first.Height
+    }}
+    {{ $color := "transparent" }}
+    {{ $imageCount = len $images }}
+    {{ $gallery = dict
+      "page" $
+      "images" $images
+      "thumbnail" $thumbnail
+      "color" $color
+      "albumCount" $albumCount
+      "imageCount" $imageCount
+    }}
+  {{ else }}
+    {{ $featured := $cover | default ((.Resources.ByType "image").GetMatch (.Params.featured_image | default "*feature*")) | default (index $images 0) }}
+    {{ $thumbnail := $featured.Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
+    {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
+    {{ if .IsPage }}
+      {{ $imageCount = len $images }}
+    {{ else }}
+      {{ range where .RegularPagesRecursive "Params.private" "ne" true }}
+        {{ $albumCount = add $albumCount 1 }}
+        {{ $imageCount = add $imageCount (len (where (.Resources.ByType "image") "Params.hidden" "ne" true)) }}
+      {{ end }}
+    {{ end }}
+    {{ $gallery = dict
+      "page" $
+      "images" $images
+      "thumbnail" $thumbnail
+      "color" $color
+      "albumCount" $albumCount
+      "imageCount" $imageCount
+    }}
+  {{ end }}
+{{ end }}
+{{ return $gallery }}
