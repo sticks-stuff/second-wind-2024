@@ -13,4 +13,4 @@ hugo.linux
 /.hugo_build.lock
 
 .DS_Store
-/content/photos/second-wind-2026/biscuit-tan/*.jpg
+/content/photos/second-wind-2026/biscuit-tan/*/*.jpg
