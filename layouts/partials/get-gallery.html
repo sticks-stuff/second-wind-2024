@@ -1,24 +1,57 @@
 {{ $gallery := "" }}
 {{ $images := slice }}
 {{ $isSW := false }}
+{{ $pathFilter := slice }}
 {{ with .File }}
   {{ if strings.Contains .Path "second-wind-2026" }}
     {{ $isSW = true }}
+    {{ $fullPath := .Path }}
+    {{ if strings.Contains $fullPath "/index.md" }}
+      {{ $fullPath = strings.TrimSuffix $fullPath "/index.md" }}
+    {{ end }}
+    {{ if strings.Contains $fullPath "second-wind-2026" }}
+      {{ $remainder := strings.TrimPrefix $fullPath "content/photos/second-wind-2026/" }}
+      {{ if ne $remainder $fullPath }}
+        {{ $pathFilter = strings.Split (strings.TrimSuffix $remainder "/") "/" }}
+        {{ if and (eq (len $pathFilter) 1) (eq (index $pathFilter 0) "") }}
+          {{ $pathFilter = slice }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
 {{ $remoteImages := slice }}
 {{ if and $isSW (site.Data.second_wind_2026_files) }}
   {{ range $it := site.Data.second_wind_2026_files.images }}
-    {{ $remoteImages = $remoteImages | append (dict
-      "Name" $it.name
-      "Title" (default "" $it.title)
-      "Date" ""
-      "Params" (dict)
-      "image" nil
-      "Width" $it.width
-      "Height" $it.height
-    ) }}
+    {{ $includeImage := true }}
+    {{ if gt (len $pathFilter) 0 }}
+      {{ $imagePath := $it.name }}
+      {{ $imagePathParts := strings.Split $imagePath "/" }}
+      {{ $match := true }}
+      {{ range $i, $component := $pathFilter }}
+        {{ if lt $i (len $imagePathParts) }}
+          {{ if ne $component (index $imagePathParts $i) }}
+            {{ $match = false }}
+          {{ end }}
+        {{ else }}
+          {{ $match = false }}
+        {{ end }}
+      {{ end }}
+      {{ $includeImage = $match }}
+    {{ end }}
+    
+    {{ if $includeImage }}
+      {{ $remoteImages = $remoteImages | append (dict
+        "Name" $it.name
+        "Title" (default "" $it.title)
+        "Date" ""
+        "Params" (dict)
+        "image" nil
+        "Width" $it.width
+        "Height" $it.height
+      ) }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
