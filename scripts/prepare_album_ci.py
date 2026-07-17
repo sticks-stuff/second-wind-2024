@@ -3,10 +3,19 @@ import argparse
 import os
 import sys
 from pathlib import Path
+from slugify import slugify
 
 import requests
 import yaml
 
+def hugo_public_path(path: Path) -> Path:
+    parts = list(path.parts)
+
+    # slugify directories only, preserve filename
+    return Path(
+        *[slugify(p) for p in parts[:-1]],
+        parts[-1]
+    )
 
 def download_album_images(data_path: Path, dest_root: Path, base_url: str) -> int:
     if not data_path.exists():
@@ -55,14 +64,15 @@ def cleanup_album_images(data_path: Path, dest_root: Path, public_roots=None) ->
         if not name:
             continue
         rel_path = Path(name)
+        public_rel_path = hugo_public_path(rel_path)
         candidates = [dest_root / rel_path]
 
         for public_root in public_roots:
             candidates.extend([
-                public_root / rel_path,
-                public_root / "second-wind-2026" / rel_path,
-                public_root / "photos" / rel_path,
-                public_root / "photos" / "second-wind-2026" / rel_path,
+                public_root / public_rel_path,
+                public_root / "second-wind-2026" / public_rel_path,
+                public_root / "photos" / public_rel_path,
+                public_root / "photos" / "second-wind-2026" / public_rel_path,
             ])
 
         for candidate in candidates:

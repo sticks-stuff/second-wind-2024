@@ -63,7 +63,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install downloader deps
-        run: pip install pyyaml requests
+        run: pip install pyyaml requests python-slugify
       - name: Download album images for second-wind-2026
         run: python scripts/prepare_album_ci.py
       - name: Install Node.js dependencies
