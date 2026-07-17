@@ -3,19 +3,13 @@
 {{ $isSW := false }}
 {{ $pathFilter := slice }}
 {{ with .File }}
-  {{ if strings.Contains .Path "second-wind-2026" }}
+  {{ if strings.Contains .Dir "second-wind-2026" }}
     {{ $isSW = true }}
-    {{ $fullPath := .Path }}
-    {{ if strings.Contains $fullPath "/index.md" }}
-      {{ $fullPath = strings.TrimSuffix $fullPath "/index.md" }}
-    {{ end }}
-    {{ if strings.Contains $fullPath "second-wind-2026" }}
-      {{ $remainder := strings.TrimPrefix $fullPath "photos/second-wind-2026/" }}
-      {{ if ne $remainder $fullPath }}
-        {{ $pathFilter = strings.Split (strings.TrimSuffix $remainder "/") "/" }}
-        {{ if and (eq (len $pathFilter) 1) (eq (index $pathFilter 0) "") }}
-          {{ $pathFilter = slice }}
-        {{ end }}
+    {{ $remainder := strings.TrimPrefix "second-wind-2026/" .Dir }}
+    {{ if ne $remainder .Dir }}
+      {{ $pathFilter = strings.Split (strings.TrimSuffix "/" $remainder) "/" }}
+      {{ if and (eq (len $pathFilter) 1) (eq (index $pathFilter 0) "") }}
+        {{ $pathFilter = slice }}
       {{ end }}
     {{ end }}
   {{ end }}
