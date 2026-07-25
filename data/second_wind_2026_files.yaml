@@ -1,3 +1,4 @@
+base_url: https://sharlot.memes.nz/second-wind-photos/second-wind-2026
 images:
 - name: feature.jpg
   filename: feature.jpg
@@ -5459,3 +5460,54 @@ images:
   filename: P1744324.JPG
   width: 5184
   height: 3888
+videos:
+- name: izzy/C0010.MP4
+  filename: C0010.MP4
+- name: izzy/C0011.MP4
+  filename: C0011.MP4
+- name: izzy/C0012.MP4
+  filename: C0012.MP4
+- name: izzy/C0013.MP4
+  filename: C0013.MP4
+- name: izzy/C0014.MP4
+  filename: C0014.MP4
+- name: izzy/C0015.MP4
+  filename: C0015.MP4
+- name: izzy/C0016.MP4
+  filename: C0016.MP4
+- name: izzy/C0017.MP4
+  filename: C0017.MP4
+- name: izzy/C0018.MP4
+  filename: C0018.MP4
+- name: izzy/C0019.MP4
+  filename: C0019.MP4
+- name: izzy/C0020.MP4
+  filename: C0020.MP4
+- name: izzy/C0021.MP4
+  filename: C0021.MP4
+- name: izzy/C0022.MP4
+  filename: C0022.MP4
+- name: izzy/C0023.MP4
+  filename: C0023.MP4
+- name: izzy/C0024.MP4
+  filename: C0024.MP4
+- name: izzy/C0025.MP4
+  filename: C0025.MP4
+- name: izzy/C0026.MP4
+  filename: C0026.MP4
+- name: izzy/C0027.MP4
+  filename: C0027.MP4
+- name: izzy/C0028.MP4
+  filename: C0028.MP4
+- name: izzy/C0029.MP4
+  filename: C0029.MP4
+- name: izzy/C0030.MP4
+  filename: C0030.MP4
+- name: izzy/C0031.MP4
+  filename: C0031.MP4
+- name: izzy/C0032.MP4
+  filename: C0032.MP4
+- name: izzy/C0033.MP4
+  filename: C0033.MP4
+- name: izzy/C0034.MP4
+  filename: C0034.MP4

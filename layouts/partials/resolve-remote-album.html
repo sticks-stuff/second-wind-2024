@@ -1,0 +1,58 @@
+{{/*
+  Generic "is this page part of a remotely-hosted album?" resolver.
+
+  Convention: a top-level content folder is treated as remotely hosted if
+  there is a matching data file at data/<folder-name-with-underscores>_files.yaml
+  (e.g. content/photos/second-wind-2026/  <->  data/second_wind_2026_files.yaml).
+  That data file must contain:
+    base_url: <CDN prefix the images were uploaded to, no trailing slash>
+    images:
+      - name: relative/path/inside/the/album.jpg
+        width: 1234
+        height: 5678
+        title: "optional"
+
+  No album name is hardcoded here — adding a new remotely-hosted album next
+  year just means adding a new content folder + a matching data file that
+  follows this naming convention. Nothing in layouts/ needs to change.
+
+  .Dir is relative to whatever contentDir is active, so this walks every
+  path segment (rather than assuming a fixed depth) to work the same way
+  regardless of which Hugo config built the page.
+
+  Returns a dict:
+    isRemote:   bool
+    albumName:  the matched folder name, e.g. "second-wind-2026"
+    albumData:  the parsed data file (has .images and .base_url)
+    pathFilter: path segments *below* the album root, e.g. ["biscuit-tan", "AFTERPARTY"]
+*/}}
+
+{{ $page := .Page }}
+{{ $result := dict "isRemote" false "albumName" "" "albumData" "" "pathFilter" slice }}
+
+{{ $remoteFlag := $page.Params.remoteGallery }}
+{{ if not $remoteFlag }}
+  {{ $remoteFlag = $page.CurrentSection.Params.remoteGallery }}
+{{ end }}
+
+{{ if $remoteFlag }}
+    {{ with $page.File }}
+      {{ $dir := replace .Dir "\\" "/" }}
+      {{ $dirParts := strings.Split (strings.TrimSuffix "/" $dir) "/" }}
+      {{ range $i, $part := $dirParts }}
+        {{ if not $result.isRemote }}
+          {{ $dataKey := printf "%s_files" (replace $part "-" "_") }}
+          {{ with index site.Data $dataKey }}
+            {{ $result = dict
+              "isRemote" true
+              "albumName" $part
+              "albumData" .
+              "pathFilter" (after (add $i 1) $dirParts)
+            }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ return $result }}

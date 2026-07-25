@@ -1,0 +1,50 @@
+<section class="gallery">
+  <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
+    {{ $remote := partial "resolve-remote-album.html" .Page }}
+    {{ $videos := .Page.Resources.ByType "video" }}
+    {{ range $videos }}
+      {{ $video := . }}
+      {{ $posterName := print $video.Name ".jpg" }}
+      {{ $poster := $.Page.Resources.GetMatch $posterName }}
+      {{ if $poster }}
+        {{ $thumbnail := $poster.Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
+        {{ $full := $poster.Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}
+        {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
+        {{ $title := $video.Title }}
+        {{ if eq $title $video.Name }}{{ $title = "" }}{{ end }}
+
+        {{ $videoSrc := $video.RelPermalink }}
+        {{ if $remote.isRemote }}
+          {{ range $remote.albumData.videos }}
+            {{ if eq .filename $video.Name }}
+              {{ $videoSrc = printf "%s/%s" $remote.albumData.base_url .name }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        <a class="gallery-item video-item"
+           href="{{ $videoSrc }}"
+           data-pswp-src="{{ $videoSrc }}"
+           data-pswp-type="video"
+           data-pswp-width="{{ $full.Width }}"
+           data-pswp-height="{{ $full.Height }}"
+           data-pswp-target="{{ $video.Name | urlize }}"
+           title="{{ $title }}"
+           itemscope itemtype="https://schema.org/VideoObject"
+           style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+          <figure style="position: relative; background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+            <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $title }}" />
+            <span class="video-play-icon" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">
+              <svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.55)" />
+                <path d="M22 17.5v21l18-10.5-18-10.5z" fill="#fff" />
+              </svg>
+            </span>
+          </figure>
+          <meta itemprop="contentUrl" content="{{ $videoSrc }}" />
+          <meta itemprop="thumbnailUrl" content="{{ $thumbnail.RelPermalink }}" />
+        </a>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>

@@ -5,11 +5,15 @@ Generate a YAML data file listing image files for a Hugo album and optionally de
 Usage:
   python scripts/generate_album_filelist.py \
     --album content/photos/second-wind-2026 \
-    --out data/second_wind_2026_files.yaml \
+    --base-url https://sharlot.memes.nz/second-wind-photos/second-wind-2026 \
+    [--out data/second_wind_2026_files.yaml] \
     [--delete]
 
 The script scans the album folder recursively for image files, writes a YAML file containing
-filename, relative path and image dimensions, and (if --delete) removes the files from disk.
+base_url, filename, relative path and image dimensions, and (if --delete) removes the files
+from disk. --out defaults to data/<album-folder-name-with-underscores>_files.yaml — the Hugo
+templates auto-discover any album that follows this naming convention, so a new year's album
+just needs its own content folder + a matching data file; nothing in layouts/ needs editing.
 """
 import argparse
 import os
@@ -24,6 +28,7 @@ except Exception:
     sys.exit(2)
 
 IMG_EXTS = ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.JPG', '.JPEG', '.PNG')
+VIDEO_EXTS = ('.mp4', '.webm', '.mov', '.MP4', '.WEBM', '.MOV')
 
 
 def gather_images(album_dir: Path):
@@ -46,10 +51,32 @@ def gather_images(album_dir: Path):
                 })
     return items
 
+def gather_videos(album_dir: Path):
+    items = []
 
-def write_yaml(out_path: Path, images):
-    data = {'images': images}
+    for root, dirs, files in os.walk(album_dir):
+        for f in sorted(files):
+            if f.endswith(VIDEO_EXTS):
+                full = Path(root) / f
+                rel = full.relative_to(album_dir)
+
+                items.append({
+                    'name': str(rel.as_posix()),
+                    'filename': f,
+                })
+
+    return items
+
+
+def write_yaml(out_path: Path, images, videos, base_url: str):
+    data = {
+        'base_url': base_url.rstrip('/'),
+        'images': images,
+        'videos': videos,
+    }
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
+
     with out_path.open('w', encoding='utf-8') as fh:
         yaml.dump(data, fh, sort_keys=False)
 
@@ -92,7 +119,13 @@ def add_gitignore_entry(pattern: str, gitignore_path: Path = Path('.gitignore'))
 def main():
     parser = argparse.ArgumentParser(description='Generate album file list and optionally delete local files')
     parser.add_argument('--album', required=True, help='Path to album folder (e.g. content/photos/second-wind-2026)')
-    parser.add_argument('--out', default='data/second_wind_2026_files.yaml', help='Output data YAML file')
+    parser.add_argument('--out', default=None,
+                         help='Output data YAML file. Defaults to data/<album-folder-name-with-underscores>_files.yaml, '
+                              'which is the naming convention the Hugo templates rely on to auto-discover remote albums.')
+    parser.add_argument('--base-url', required=True,
+                         help='CDN prefix the images were/will be uploaded to (no trailing slash), e.g. '
+                              'https://sharlot.memes.nz/second-wind-photos/second-wind-2026. Stored in the '
+                              'manifest itself so nothing in layouts/ needs to hardcode it.')
     parser.add_argument('--delete', action='store_true', help='Delete the local image files after generating list')
     parser.add_argument('--gitignore', action='store_true', help='Append the album path to .gitignore instead of deleting files')
     args = parser.parse_args()
@@ -103,13 +136,15 @@ def main():
         sys.exit(1)
 
     images = gather_images(album_dir)
-    if not images:
-        print("No images found in album")
+    videos = gather_videos(album_dir)
+
+    if not images and not videos:
+        print("No images or videos found in album")
         sys.exit(0)
 
-    out_path = Path(args.out)
-    write_yaml(out_path, images)
-    print(f"Wrote {len(images)} entries to {out_path}")
+    out_path = Path(args.out) if args.out else Path('data') / f"{album_dir.name.replace('-', '_')}_files.yaml"
+    write_yaml(out_path, images, videos, args.base_url)
+    print(f"Wrote {len(images)} entries to {out_path} (base_url: {args.base_url})")
 
     if args.gitignore:
         # add a pattern to .gitignore to keep files locally but untracked

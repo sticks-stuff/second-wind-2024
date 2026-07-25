@@ -1,27 +1,16 @@
 {{ $gallery := "" }}
 {{ $images := slice }}
-{{ $isSW := false }}
-{{ $pathFilter := slice }}
-{{ with .File }}
-  {{ if strings.Contains .Dir "second-wind-2026" }}
-    {{ $isSW = true }}
-    {{ $remainder := strings.TrimPrefix "second-wind-2026/" .Dir }}
-    {{ if ne $remainder .Dir }}
-      {{ $pathFilter = strings.Split (strings.TrimSuffix "/" $remainder) "/" }}
-      {{ if and (eq (len $pathFilter) 1) (eq (index $pathFilter 0) "") }}
-        {{ $pathFilter = slice }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{ $resolved := partial "resolve-remote-album.html" . }}
+{{ $isRemoteAlbum := $resolved.isRemote }}
+{{ $albumData := $resolved.albumData }}
+{{ $pathFilter := $resolved.pathFilter }}
 
 {{ $remoteImages := slice }}
-{{ if and $isSW (site.Data.second_wind_2026_files) }}
-  {{ range $it := site.Data.second_wind_2026_files.images }}
+{{ if $isRemoteAlbum }}
+  {{ range $it := $albumData.images }}
     {{ $includeImage := true }}
     {{ if gt (len $pathFilter) 0 }}
-      {{ $imagePath := $it.name }}
-      {{ $imagePathParts := strings.Split $imagePath "/" }}
+      {{ $imagePathParts := strings.Split $it.name "/" }}
       {{ $match := true }}
       {{ range $i, $component := $pathFilter }}
         {{ if lt $i (len $imagePathParts) }}
@@ -34,7 +23,7 @@
       {{ end }}
       {{ $includeImage = $match }}
     {{ end }}
-    
+
     {{ if $includeImage }}
       {{ $remoteImages = $remoteImages | append (dict
         "Name" $it.name
@@ -58,22 +47,33 @@
 {{ if gt (len $images) 0 }}
   {{ $covers := where (.Resources.ByType "image") "Params.cover" "eq" true }}
   {{ $cover := "" }}
-  {{ if ge (len $covers) 0 }}
+  {{ if gt (len $covers) 0 }}
     {{ $cover = index $covers 0 }}
   {{ end }}
 
   {{ $imageCount := 0 }}
   {{ $albumCount := 0 }}
 
-  {{ if and $isSW (gt (len $remoteImages) 0) }}
-    {{ $first := index $images 0 }}
-    {{ $thumbnail := dict
-      "RelPermalink" (print "https://sharlot.memes.nz/second-wind-photos/second-wind-2026/" $first.Name)
-      "Width" $first.Width
-      "Height" $first.Height
-    }}
-    {{ $color := "transparent" }}
+  {{ if and $isRemoteAlbum (gt (len $remoteImages) 0) }}
     {{ $imageCount = len $images }}
+    {{ $thumbnail := "" }}
+    {{ $color := "transparent" }}
+    {{ if $cover }}
+      {{/* A real, locally-committed cover image was declared in front
+           matter (resources: - src: ... params: cover: true). Prefer it
+           over an arbitrary "first entry in the manifest" — it also gets
+           a properly resized/optimized thumbnail instead of linking the
+           full-size remote original. */}}
+      {{ $thumbnail = $cover.Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
+      {{ $color = index $thumbnail.Colors 0 | default "transparent" }}
+    {{ else }}
+      {{ $first := index $images 0 }}
+      {{ $thumbnail = dict
+        "RelPermalink" (print $albumData.base_url "/" $first.Name)
+        "Width" $first.Width
+        "Height" $first.Height
+      }}
+    {{ end }}
     {{ $gallery = dict
       "page" $
       "images" $images

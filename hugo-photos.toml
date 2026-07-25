@@ -16,3 +16,9 @@ title = "Second Wind Photos"
 contentDir = "content/photos"
 publishDir = "public/photos"
 staticDir = "static/photos"
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

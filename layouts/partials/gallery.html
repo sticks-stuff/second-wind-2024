@@ -1,27 +1,16 @@
 <section class="gallery">
   <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
     {{ $images := slice }}
-    {{ $isSW := false }}
-    {{ $pathFilter := slice }}
-    {{ with .File }}
-      {{ if strings.Contains .Dir "second-wind-2026" }}
-        {{ $isSW = true }}
-        {{ $remainder := strings.TrimPrefix "second-wind-2026/" .Dir }}
-        {{ if ne $remainder .Dir }}
-          {{ $pathFilter = strings.Split (strings.TrimSuffix "/" $remainder) "/" }}
-          {{ if and (eq (len $pathFilter) 1) (eq (index $pathFilter 0) "") }}
-            {{ $pathFilter = slice }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
+    {{ $resolved := partial "resolve-remote-album.html" . }}
+    {{ $isRemoteAlbum := $resolved.isRemote }}
+    {{ $albumData := $resolved.albumData }}
+    {{ $pathFilter := $resolved.pathFilter }}
 
-    {{ if and $isSW (site.Data.second_wind_2026_files) }}
-      {{ range $it := site.Data.second_wind_2026_files.images }}
+    {{ if $isRemoteAlbum }}
+      {{ range $it := $albumData.images }}
         {{ $includeImage := true }}
         {{ if gt (len $pathFilter) 0 }}
-          {{ $imagePath := $it.name }}
-          {{ $imagePathParts := strings.Split $imagePath "/" }}
+          {{ $imagePathParts := strings.Split $it.name "/" }}
           {{ $match := true }}
           {{ range $i, $component := $pathFilter }}
             {{ if lt $i (len $imagePathParts) }}
@@ -34,7 +23,7 @@
           {{ end }}
           {{ $includeImage = $match }}
         {{ end }}
-        
+
         {{ if $includeImage }}
           {{ $images = $images | append (dict
             "Name" $it.name
@@ -74,7 +63,8 @@
     {{ end }}
 
     {{ $publishResources := default true .Params.build.publishResources }}
-    {{ $base := "https://sharlot.memes.nz/second-wind-photos/second-wind-2026/" }}
+    {{ $base := "" }}
+    {{ if $isRemoteAlbum }}{{ $base = $albumData.base_url }}{{ end }}
     {{ range sort $images (.Params.sort_by | default "Name") (.Params.sort_order | default "asc") }}
       {{ $image := .image }}
       {{ if $image }}
