@@ -2,10 +2,25 @@
   <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
     {{ $remote := partial "resolve-remote-album.html" .Page }}
     {{ $videos := .Page.Resources.ByType "video" }}
+
+    {{ if $remote.isRemote }}
+      {{ $videos = .Page.Resources.Match "*.mp4.jpg" }}
+    {{ end }}
+
     {{ range $videos }}
       {{ $video := . }}
-      {{ $posterName := print $video.Name ".jpg" }}
-      {{ $poster := $.Page.Resources.GetMatch $posterName }}
+      {{ if $remote.isRemote }}
+        {{ $video = dict
+            "Name" (strings.TrimSuffix ".jpg" .Name)
+            "Title" (strings.TrimSuffix ".jpg" .Title)
+            "RelPermalink" ""
+        }}
+      {{ end }}
+      {{ $poster := . }}
+      {{ if not $remote.isRemote }}
+        {{ $posterName := print $video.Name ".jpg" }}
+        {{ $poster = $.Page.Resources.GetMatch $posterName }}
+      {{ end }}
       {{ if $poster }}
         {{ $thumbnail := $poster.Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
         {{ $full := $poster.Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}
